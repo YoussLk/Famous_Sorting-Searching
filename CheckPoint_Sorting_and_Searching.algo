@@ -1,0 +1,36 @@
+/*********************************** The scenario****************************************
+1-The algorithm starts by defining an array of N integers and three variables, i, j, and current.
+2-It then iterates through the array from the second element to the last element using a for loop.
+3-For each element in the loop, it sets the current variable to the value of the current element and j to the index of the element before it.
+4-It then enters a while loop that checks if j is greater than or equal to zero AND if the value of the element at index j is greater than the value of the current element.
+5-If the condition in step 4 is true, it shifts the value of the element at index j to the right by one position to make space for the current element.
+6-It then decrements j by one to check the next element to the left.
+7-The while loop continues until it finds an element with a value less than or equal to the current element or until j reaches the first element in the array.
+8-Once the while loop ends, it inserts the current element into the empty slot to the right of the last element that was shifted to the right.
+9-It then continues the loop by moving to the next element in the array and repeating steps 3-8 until it reaches the end of the array.
+10-Once the loop ends, the array is sorted in ascending order.
+*********************************************************************************************/
+
+
+ALGORITHM InsertionSort
+
+VAR //defining an array of N integers and three variables, i, j, and current
+    arr : ARRAY_OF INTEGER[N];
+    i, j, current : INTEGER;
+
+BEGIN
+    FOR i := 1 TO N-1 DO    //iterate arr from the second elmnt to the last elmnt 
+        current := arr[i];
+        j := i - 1;
+        WHILE j >= 0 AND arr[j] > current DO
+            arr[j+1] := arr[j];
+            j := j - 1; //decrements j by one to check the next elmnt to the left
+        END WHILE;
+        arr[j+1] := current;
+    END FOR;
+    //the array sort in ascending order
+END.
+
+
+
+
